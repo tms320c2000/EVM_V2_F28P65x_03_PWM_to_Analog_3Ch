@@ -1,0 +1,31 @@
+<projectSpec>
+  <project
+        name="3_PWM_to_Analog_3Ch_Freertos"
+        device="TMS320F28P650DK9"
+        cgtVersion="22.6.3.LTS"
+        products="C2000WARE"
+        outputFormat="ELF"
+        launchWizard="False"
+        linkerCommandFile=""
+        >
+    <!--
+      8_GP_LED16_Freertos와 같은 FreeRTOS 커널/포트(FreeRTOS/, device/) 구성을 그대로
+      재사용합니다. 힙 미사용(정적 할당만) 구성입니다.
+    -->
+    <configuration name="CPU1_RAM"
+        compilerBuildOptions="--opt_level=off -I${PROJECT_ROOT}/device -I${PROJECT_ROOT}/device/driverlib -I${PROJECT_ROOT}/FreeRTOS/include -I${PROJECT_ROOT}/FreeRTOS/port -I${PROJECT_ROOT} -v28 -ml -mt --cla_support=cla2 --define=RAM --float_support=fpu64 --tmu_support=tmu0 --define=DEBUG --define=CPU1 --gen_func_subsections=on --diag_warning=225 --diag_suppress=10063"
+        linkerBuildOptions="--entry_point code_start -i${PROJECT_ROOT}" />
+    <configuration name="CPU1_FLASH"
+        compilerBuildOptions="--opt_level=off -I${PROJECT_ROOT}/device -I${PROJECT_ROOT}/device/driverlib -I${PROJECT_ROOT}/FreeRTOS/include -I${PROJECT_ROOT}/FreeRTOS/port -I${PROJECT_ROOT} --define=_FLASH -v28 -ml -mt --cla_support=cla2 --float_support=fpu64 --tmu_support=tmu0 --define=DEBUG --define=CPU1 --gen_func_subsections=on --diag_warning=225 --diag_suppress=10063"
+        linkerBuildOptions="--entry_point code_start --define=_FLASH -i${PROJECT_ROOT}" />
+
+    <file action="copy" path="../driverlib.lib" targetDirectory="" applicableConfigurations="CPU1_RAM, CPU1_FLASH" />
+    <file action="copy" path="../28p65x_freertos_ram_lnk_cpu1.cmd" targetDirectory="" applicableConfigurations="CPU1_RAM" />
+    <file action="copy" path="../28p65x_freertos_flash_lnk_cpu1.cmd" targetDirectory="" applicableConfigurations="CPU1_FLASH" />
+    <file action="copy" path="../targetConfigs/TMS320F28P650DK9.ccxml" targetDirectory="targetConfigs" />
+    <file action="copy" path="../device" targetDirectory="" />
+    <file action="copy" path="../FreeRTOS" targetDirectory="" />
+    <file action="copy" path="../FreeRTOSConfig.h" targetDirectory="" />
+    <file action="copy" path="../3_PWM_to_Analog_3Ch_Freertos.c" targetDirectory="" />
+  </project>
+</projectSpec>

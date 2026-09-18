@@ -1,0 +1,18 @@
+# AI coding assistant config/state - not part of the example itself
+.claude/
+.codex/
+.agents/
+.theia/
+AGENTS.md
+CLAUDE.md
+.mcp.json
+
+# CCS build output (created when a project is imported/built in workspace_ccstheia)
+Debug/
+Release/
+CPU1_RAM/
+CPU1_FLASH/
+*.obj
+*.out
+*.map
+*.d
