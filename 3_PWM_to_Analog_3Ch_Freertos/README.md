@@ -107,4 +107,5 @@ Continuous Refresh를 켜면 3개 채널의 아름다운 사인파 교차 파형
 
 ## 관련 링크
 - 상품 페이지: https://tms320f28x.co.kr/goods/goods_view.php?goodsNo=200903127
+- 게시판 글: https://tms320f28x.co.kr/board/view.php?bdId=tms320f28xevmv2&sno=104
 - 보드 핀헤더 정의표: https://www.tms320f28x.co.kr/data/goods/swgoods/4064/TMS320F28X_EVM_V2_PinHeader_Reference_F28P650DK9_Module.pdf
